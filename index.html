@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>XOY</title>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <h4>Punctul A:</h4>
+        <input id="a_x" type="number" step="any" placeholder="X"/>
+        <input id="a_y" type="number" step="any" placeholder="Y"/>
+
+        <h4>Punctul B:</h4>
+        <input id="b_x" type="number" step="any" placeholder="X"/>
+        <input id="b_y" type="number" step="any" placeholder="Y"/>
+
+        <br /> <br />
+        <button id="send" onclick="calculate()">Vezi rezultat</button>
+
+        <div id="results">
+
+        </div>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript">
+            // Calculate function for button
+            function calculate(){
+                // For verify
+                let vr_a_x = document.getElementById('a_x').value;
+                let vr_a_y = document.getElementById('a_y').value;
+                let vr_b_x = document.getElementById('b_x').value;
+                let vr_b_y = document.getElementById('b_y').value;
+                // End verify
+
+                // For algorithm
+                let a_x = parseFloat(document.getElementById('a_x').value);
+                let a_y = parseFloat(document.getElementById('a_y').value);
+                let b_x = parseFloat(document.getElementById('b_x').value);
+                let b_y = parseFloat(document.getElementById('b_y').value);
+                let X_new = 0;
+                let Y_new= 0;
+                let final = [];
+                // End
+
+                // Algorithm + verify
+                if(vr_a_x === "" || vr_a_y === "" || vr_b_x === "" || vr_b_y === ""){
+                    alert('Introduceti toate valorile !');
+                } else {
+                    X_new = (a_x + b_x) / 2;
+                    Y_new = (a_y + b_y) / 2;
+                    final.push([X_new, Y_new]);
+                    console.log(final)
+                    $("#results").html("<br />Result -> M(" + X_new + ", " + Y_new + ") <br /> Final vector = [" + final + "]")
+                }
+                // End
+            }
+        </script>
+
+    </body>
+</html>
